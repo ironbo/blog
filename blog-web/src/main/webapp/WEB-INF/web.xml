@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>Archetype Created Web Application</display-name>
+	<!-- needed for ContextLoaderListener -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring.xml</param-value>
+	</context-param>
+	<!-- log4j -->
+    <context-param>  
+        <param-name>isLog4jAutoInitializationDisabled</param-name>  
+        <param-value>false</param-value>  
+    </context-param>  
+    <!-- 默认就会找这个文件，不需要额外配置引用  
+   -->
+    <context-param>  
+        <param-name>log4jConfiguration</param-name>  
+        <param-value>classpath:config/log4j2.xml</param-value>  
+    </context-param>  
+    <listener>  
+        <listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>  
+    </listener>  
+    <filter>  
+        <filter-name>log4jServletFilter</filter-name>  
+        <filter-class>org.apache.logging.log4j.web.Log4jServletFilter</filter-class>  
+    </filter>  
+    <filter-mapping>  
+        <filter-name>log4jServletFilter</filter-name>  
+        <url-pattern>/*</url-pattern>  
+        <dispatcher>REQUEST</dispatcher>  
+        <dispatcher>FORWARD</dispatcher>  
+        <dispatcher>INCLUDE</dispatcher>  
+        <dispatcher>ERROR</dispatcher>  
+    </filter-mapping>
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- Bootstraps the root web application context before servlet initialization -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- 防止Spring内存溢出监听器 -->
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>springDispatcherServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:spring-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springDispatcherServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+</web-app>
