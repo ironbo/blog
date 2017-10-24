@@ -10,8 +10,7 @@
 	</parent>
 	<artifactId>blog-web</artifactId>
 	<packaging>war</packaging>
-	<name>blog-web Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
