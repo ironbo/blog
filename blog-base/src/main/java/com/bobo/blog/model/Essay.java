@@ -16,7 +16,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import com.alibaba.fastjson.annotation.JSONField;
 
 @Entity
-@Table(name = "MIMI_ESSAY")
+@Table(name = "BLOG_ESSAY")
 @DynamicInsert(true)
 @DynamicUpdate(true)
 public class Essay {
@@ -42,7 +42,7 @@ public class Essay {
 
 	@Id
 	@Column(name = "ID", length = 10)
-	@SequenceGenerator(name = "seq", sequenceName = "MIMI_ESSAY_SEQ", initialValue = 1, allocationSize = 1)
+	@SequenceGenerator(name = "seq", sequenceName = "BLOG_ESSAY_SEQ", initialValue = 1, allocationSize = 1)
 	@GeneratedValue(generator = "seq", strategy = GenerationType.SEQUENCE)
 	public int getId() {
 		return id;

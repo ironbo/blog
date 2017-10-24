@@ -1,7 +1,7 @@
 package com.bobo.blog.service.user;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +14,7 @@ import com.bobo.blog.service.CommandService;
 
 @Service("usernameCheckService")
 public class UsernameCheckService implements CommandService {
-	private final static Logger logger = LogManager.getLogger(UsernameCheckService.class);
+//	private final static Logger logger = LogManager.getLogger(UsernameCheckService.class);
 	@Autowired
 	UserDao userDao;
 

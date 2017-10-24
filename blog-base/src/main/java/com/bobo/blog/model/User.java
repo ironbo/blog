@@ -1,6 +1,8 @@
 package com.bobo.blog.model;
 
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -23,7 +25,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import com.alibaba.fastjson.annotation.JSONField;
 
 @Entity
-@Table(name = "MIMI_USER")
+@Table(name = "BLOG_USER")
 @DynamicInsert(true)
 @DynamicUpdate(true)
 public class User {
@@ -39,11 +41,13 @@ public class User {
 	private String country;
 	@JSONField(name = "avatar_url")
 	private String avatarUrl;
+	@JSONField(name = "create_time")
+	private Instant createTime;
 	private List<Role> roles = new ArrayList<Role>();
 
 	@Id
 	@Column(name = "ID", length = 10)
-	@SequenceGenerator(name = "seq", sequenceName = "MIMI_USER_SEQ", initialValue = 1, allocationSize = 1)
+	@SequenceGenerator(name = "seq", sequenceName = "BLOG_USER_SEQ", initialValue = 1, allocationSize = 1)
 	@GeneratedValue(generator = "seq", strategy = GenerationType.SEQUENCE)
 	public int getId() {
 		return id;
@@ -132,6 +136,14 @@ public class User {
 
 	public void setAvatarUrl(String avatarUrl) {
 		this.avatarUrl = avatarUrl;
+	}
+	@Column(name = "CREATE_TIME")
+	public Instant getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Instant createTime) {
+		this.createTime = createTime;
 	}
 
 	@JoinTable(name = "MIMI_USER_ROLE", joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "ROLE_ID", referencedColumnName = "ID"))

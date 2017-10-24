@@ -10,7 +10,7 @@ package com.bobo.blog.model;
 //import javax.persistence.Table;
 //
 //@Entity
-//@Table(name = "MIMI_SUBCOMMENT")
+//@Table(name = "BLOG_SUBCOMMENT")
 //public class SubComment {
 //	private int id;
 //	private int commentId;
@@ -21,7 +21,7 @@ package com.bobo.blog.model;
 //
 //	@Id
 //	@Column(name = "ID", length = 10)
-//	@SequenceGenerator(name = "seq", sequenceName = "MIMI_SUBCOMMENT_SEQ", initialValue = 1, allocationSize = 1)
+//	@SequenceGenerator(name = "seq", sequenceName = "BLOG_SUBCOMMENT_SEQ", initialValue = 1, allocationSize = 1)
 //	@GeneratedValue(generator = "seq", strategy = GenerationType.SEQUENCE)
 //	public String getId() {
 //		return id;

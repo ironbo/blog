@@ -14,7 +14,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import com.alibaba.fastjson.annotation.JSONField;
 
 @Entity
-@Table(name="MIMI_ROLE")
+@Table(name="BLOG_ROLE")
 @DynamicInsert(true)
 @DynamicUpdate(true)
 public class Role {
@@ -25,7 +25,7 @@ public class Role {
 
 	@Id
 	@Column(name = "ID", length = 10)
-	@SequenceGenerator(name = "seq", sequenceName = "MIMI_ROLE_SEQ", initialValue = 1, allocationSize = 1)
+	@SequenceGenerator(name = "seq", sequenceName = "BLOG_ROLE_SEQ", initialValue = 1, allocationSize = 1)
 	@GeneratedValue(generator="seq",strategy=GenerationType.SEQUENCE)
 	public int getId() {
 		return id;

@@ -1,5 +1,7 @@
 package com.bobo.blog.data;
 
+import java.time.Instant;
+
 import com.alibaba.fastjson.annotation.JSONField;
 
 public class UserData {
@@ -13,6 +15,8 @@ public class UserData {
 	private String country;
 	@JSONField(name = "avatar_url")
 	private String avatarUrl;
+	@JSONField(name = "create_time")
+	private Instant createTime;
 
 	public int getId() {
 		return id;
@@ -84,6 +88,14 @@ public class UserData {
 
 	public void setAvatarUrl(String avatarUrl) {
 		this.avatarUrl = avatarUrl;
+	}
+
+	public Instant getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Instant createTime) {
+		this.createTime = createTime;
 	}
 
 }
