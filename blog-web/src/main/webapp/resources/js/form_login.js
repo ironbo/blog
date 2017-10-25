@@ -26,11 +26,12 @@ function login() {
 function register() {
 	layer.open({
 		  type: 2,
+		  title:'注册信息',
 		  skin: 'layui-layer-rim', // 加上边框
 		  shadeClose: false,
 		  shade: 0.8,
 		  area: ['800px', '600px'], // 宽高自定义设置
-		  content: '/resources/index.html' // iframe的url
+		  content: '/register_content.html'  // iframe的url
 		});
 // var username = $("#username").val();
 // var password = $("#password").val();
