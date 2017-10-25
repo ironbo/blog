@@ -1,6 +1,6 @@
 function login() {
-	var username = $("#usename").val();
-	var password = $("#pasword").val();
+	var username = $("#username").val();
+	var password = $("#password").val();
 	var checkData = {
 		'username' : username,
 		'password' : password,
@@ -23,30 +23,38 @@ function login() {
 
 	return false;
 }
-function test() {
-	var username = $("#username").val();
-	var password = $("#password").val();
-	var email = $("#email").val();
-	var nick = $("#nick").val();
-	var checkData = {
-			'username' : username,
-			'password' : password,
-			'email' : email,
-			'nick' : nick,
-			'service_id':'registerService',
-	};
-	$.ajax({
-		type : 'POST',
-		url : '/register',
-		dataType : 'json',
-		data : checkData,
-		success : function(data) {
-			console.log(data);
-		},
-		error : function(xhr, type) {
-			
-		}
-	});
+function register() {
+	layer.open({
+		  type: 2,
+		  skin: 'layui-layer-rim', // 加上边框
+		  shadeClose: false,
+		  shade: 0.8,
+		  area: ['800px', '600px'], // 宽高自定义设置
+		  content: '/resources/index.html' // iframe的url
+		});
+// var username = $("#username").val();
+// var password = $("#password").val();
+// var email = $("#email").val();
+// var nick = $("#nick").val();
+// var checkData = {
+// 'username' : username,
+// 'password' : password,
+// 'email' : email,
+// 'nick' : nick,
+// 'service_id':'registerService',
+// };
+// $.ajax({
+// type : 'POST',
+// url : '/register',
+// dataType : 'json',
+// data : checkData,
+// success : function(data) {
+// console.log(data);
+// },
+// error : function(xhr, type) {
+//			
+// }
+// });
 }
 function test1() {
 	var username = $("#abc").val();

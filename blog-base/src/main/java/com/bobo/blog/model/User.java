@@ -1,6 +1,5 @@
 package com.bobo.blog.model;
 
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -42,7 +41,7 @@ public class User {
 	@JSONField(name = "avatar_url")
 	private String avatarUrl;
 	@JSONField(name = "create_time")
-	private Instant createTime;
+	private Date createTime;
 	private List<Role> roles = new ArrayList<Role>();
 
 	@Id
@@ -138,11 +137,11 @@ public class User {
 		this.avatarUrl = avatarUrl;
 	}
 	@Column(name = "CREATE_TIME")
-	public Instant getCreateTime() {
+	public Date getCreateTime() {
 		return createTime;
 	}
 
-	public void setCreateTime(Instant createTime) {
+	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 

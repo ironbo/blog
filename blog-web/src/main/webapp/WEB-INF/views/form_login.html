@@ -3,7 +3,6 @@
 <head>
 <title>Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="application/x-javascript">
 	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
@@ -12,8 +11,10 @@
 <meta name="keywords"
 	content="Flat Dark Web Login Form Responsive Templates, Iphone Widget Template, Smartphone login forms,Login form, Widget Template, Responsive Templates, a Ipad 404 Templates, Flat Responsive Templates" />
 <link href="/resources/css/style.css" rel='stylesheet' type='text/css' />
-<script type="text/javascript" src="/resources/js/jquery-1.7.min.js"></script>
+<link href="/resources/layui/css/layui.css" rel='stylesheet' type='text/css' />
+<script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/resources/js/form_login.js"></script>
+<script type="text/javascript" src="/resources/layui/layui.all.js"></script>
 </head>
 <body>
 	<script>
@@ -26,7 +27,7 @@
 		});
 	</script>
 	<!--SIGN UP-->
-	<h1>bobo的博客 </h1>
+	<h1>bobo</h1>
 	<div class="login-form">
 		<div class="close"></div>
 		<div class="head-info">
@@ -38,17 +39,18 @@
 			<img src="/resources/images/avtar.png" />
 		</div>
 		<form>
-			<input type="text" class="text" value="username" id="username"
+			<input type="text" class="text" value="Username" id="username"
 				onfocus="this.value = '';"
-				onblur="if (this.value == '') {this.value = 'username';}">
+				onblur="if (this.value == '') {this.value = 'Username';}">
 			<div class="key">
-				<input type="password" value="password" id="password"
+				<input type="password" value="Password" id="password"
 					onfocus="this.value = '';"
-					onblur="if (this.value == '') {this.value = 'password';}">
+					onblur="if (this.value == '') {this.value = 'Password';}">
 			</div>
 		</form>
 		<div class="signin">
-			<input type="submit" value="鐧诲綍" onclick="login() ">
+			<input type="submit" value="登录" onclick="login() ">
+			<input type="submit" value="注册" onclick="register() ">
 		</div>
 	</div>
 	<div class="copy-rights"></div>

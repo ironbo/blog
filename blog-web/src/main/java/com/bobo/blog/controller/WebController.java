@@ -21,7 +21,6 @@ public class WebController {
 	@RequestMapping(value = { "/forward" })
 	public String forward(HttpServletResponse response, HttpServletRequest request) {
 		response.setCharacterEncoding("UTF-8");
-		System.out.println("bobo");
 		return "index";
 	}
 	
