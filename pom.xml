@@ -19,7 +19,7 @@
 						<httpConnector>
 							<port>8082</port>
 						</httpConnector>
-						<scanIntervalSeconds>2</scanIntervalSeconds>
+						<scanIntervalSeconds>8</scanIntervalSeconds>
 					</configuration>
 				</plugin>
 				<plugin>

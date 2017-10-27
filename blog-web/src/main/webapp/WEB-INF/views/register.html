@@ -4,40 +4,96 @@
 <link href="/resources/layui/css/layui.css" rel='stylesheet'
 	type='text/css' />
 <script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="/resources/js/index.js"></script>
+<script type="text/javascript" src="/resources/layui/layui.js"></script>
+<script type="text/javascript" src="/resources/js/register.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
 	<form class="layui-form" id="register_form" action="#">
 		<div class="layui-form-item">
-			<label class="layui-form-label">用户名</label>
+		<!-- 
+		<label class="layui-form-label">头像</label>
+			<div class="layui-input-inline">
+				<button type="button" class="layui-btn" id="avatarUrl" >上传图片</button>
+				<div class="layui-upload-list">
+					<img class="layui-upload-img" id="picture" >
+					<p id="demoText"></p>
+				</div>
+			</div>
+		</div>
+		 -->
+		<div class="layui-form-item">
+			<label class="layui-form-label">用户名<span>*</span></label>
 			<div class="layui-input-inline">
 				<input type="text" name="username" lay-verify="username"
-					autocomplete="off" placeholder="请输入标题" class="layui-input">
+					autocomplete="off" placeholder="用户名" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">短输入框</label>
+			<label class="layui-form-label">密码<span>*</span></label>
 			<div class="layui-input-inline">
-				<input type="text" name="username" lay-verify="required"
-					placeholder="请输入" autocomplete="off" class="layui-input">
+				<input type="password" id="password" name="password"
+					lay-verify="password" autocomplete="off" placeholder="请输入6到18位密码"
+					class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">密码</label>
+			<label class="layui-form-label">确认密码<span>*</span></label>
 			<div class="layui-input-inline">
-				<input type="password" name="password" lay-verify="password"
-					autocomplete="off" placeholder="请输入标题" class="layui-input">
+				<input type="password" name="verifyPassword"
+					lay-verify="verifyPassword" autocomplete="off" placeholder="确认密码"
+					class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">昵称</label>
-			<div class="layui-input-inline">
-				<input type="text" name="nickname" lay-verify="nickname"
-					autocomplete="off" placeholder="请输入标题" class="layui-input">
+			<div class="layui-inline">
+				<label class="layui-form-label">邮箱<span>*</span></label>
+				<div class="layui-input-inline">
+					<input name="email" lay-verify="email" placeholder="邮箱"
+						autocomplete="off" class="layui-input" type="text">
+				</div>
 			</div>
 		</div>
-		<button class="layui-btn layui-btn-normal" form="register_form">提交</button>
+		<div class="layui-form-item">
+			<label class="layui-form-label">昵称<span>*</span></label>
+			<div class="layui-input-inline">
+				<input type="text" name="nick" lay-verify="nick" autocomplete="off"
+					placeholder="昵称" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item" pane="">
+			<label class="layui-form-label">性别</label>
+			<div class="layui-input-block">
+				<input name="gender" value="1" title="男" checked="checked"
+					type="radio"> <input name="gender" value="0" title="女"
+					type="radio">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label">地址</label>
+				<div class="layui-input-inline" style="width: 100px;">
+					<input name="country" placeholder="国家" autocomplete="off"
+						class="layui-input" type="text">
+				</div>
+				<div class="layui-form-mid">-</div>
+				<div class="layui-input-inline" style="width: 100px;">
+					<input name="province" placeholder="省份" autocomplete="off"
+						class="layui-input" type="text">
+				</div>
+				<div class="layui-form-mid">-</div>
+				<div class="layui-input-inline" style="width: 100px;">
+					<input name="city" placeholder="城市" autocomplete="off"
+						class="layui-input" type="text">
+				</div>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn" lay-submit="" lay-filter="submit">立即提交</button>
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+			</div>
+		</div>
 	</form>
 </body>
 </html>

@@ -23,6 +23,11 @@ public class WebController {
 		response.setCharacterEncoding("UTF-8");
 		return "index";
 	}
+	@RequestMapping(value = { "/register_content.html" })
+	public String register(HttpServletResponse response, HttpServletRequest request) {
+		response.setCharacterEncoding("UTF-8");
+		return "register";
+	}
 	
 	@RequestMapping(value = { "/weixinTest" })
 	public void weixinTest(HttpServletResponse response, HttpServletRequest request) throws IOException {

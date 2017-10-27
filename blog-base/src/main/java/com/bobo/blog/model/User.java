@@ -145,7 +145,7 @@ public class User {
 		this.createTime = createTime;
 	}
 
-	@JoinTable(name = "MIMI_USER_ROLE", joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "ROLE_ID", referencedColumnName = "ID"))
+	@JoinTable(name = "BLOG_USER_ROLE", joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "ROLE_ID", referencedColumnName = "ID"))
 	@ManyToMany(targetEntity = Role.class, fetch = FetchType.EAGER)
 	@Cascade({ CascadeType.SAVE_UPDATE, CascadeType.DELETE })
 	public List<Role> getRoles() {

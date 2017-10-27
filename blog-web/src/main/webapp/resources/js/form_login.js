@@ -1,3 +1,14 @@
+$(function(){
+	$("#username").blur(function(){
+		alert("a");
+	});
+	
+})
+function MutiSelectRequired(id){
+	$('#' + id ).html(function(index,oldcontent){
+		$('#' + id ).html(oldcontent +"<span class='red'>*</span>" )
+	});
+}
 function login() {
 	var username = $("#username").val();
 	var password = $("#password").val();
@@ -30,7 +41,7 @@ function register() {
 		  skin: 'layui-layer-rim', // 加上边框
 		  shadeClose: false,
 		  shade: 0.8,
-		  area: ['800px', '600px'], // 宽高自定义设置
+		  area: ['600px', '500px'], // 宽高自定义设置
 		  content: '/register_content.html'  // iframe的url
 		});
 // var username = $("#username").val();

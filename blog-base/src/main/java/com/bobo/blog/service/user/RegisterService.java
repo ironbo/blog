@@ -32,17 +32,13 @@ public class RegisterService implements CommandService {
 		CommandResponse commandResponse = new DefaultCommandResponse();
 		try {
 			User user = JSON.parseObject(requestContent, User.class);
-			if(user.getGender() != null && user.getGender().equals("女"))
-				user.setGender("F");
-			else
-				user.setGender("M");
 			Role role = roleDao.get(2, Role.class);
 			List<Role> roles = user.getRoles();
 			roles.add(role);
 			user.setRoles(roles);
 			userDao.save(user);
 		} catch (Exception e) {
-			logger.debug(e.getMessage());
+			e.printStackTrace();
 			logger.info("注册服务异常，请查看debug日志");
 			commandResponse.setRetCode(ExceptionCode.REGISTER_FAILURE.getCode());
 			commandResponse.setRetMsg(ExceptionCode.REGISTER_FAILURE.getDesc());
