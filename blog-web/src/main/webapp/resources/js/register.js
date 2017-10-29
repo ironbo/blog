@@ -51,40 +51,14 @@ layui.use([ 'form', 'upload' ],
 //			});
 	// 监听提交
 	form.on('submit(submit)', function(data) {
-		var registerDate = data.field;
-		registerDate.service_id = 'registerService', console.log(registerDate);
-		$.ajax({
-			type : 'POST',
-			url : '/register',
-			dataType : 'json',
-			data : registerDate,
-			success : function(data) {
-				if (data.code == "0000") {
-					layer.msg(data.msg, {
-						icon: 1,
-						time: 1000 //2秒关闭（如果不配置，默认是3秒）
-					}); 
-					var index = parent.layer.getFrameIndex(window.name);
-					parent.layer.close(index);
-				}else{
-					layer.msg(data.msg, {icon: 6}); 
-				}
-			},
-			error : function(json, textStatus) {
-				common_resubmit_flag = false;
-				logger.error('send ajax return error.');
-				if (failedCallBack) {
-					failedCallBack(json, textStatus);
-				} else {
-					alertMsg("通讯异常");
-				}
-			}
-		});
+		var registerData = data.field;
+		registerData.service_id = 'registerService';
+		ajaxSend({url:'/register',data:registerData},callSuccess);	
 		return false;
 	});
-	$("#password").blur(function(){
-		alert("a");
-	});
+//	$("#password").blur(function(){
+//		alert("a");
+//	});
 });
 
 function test() {

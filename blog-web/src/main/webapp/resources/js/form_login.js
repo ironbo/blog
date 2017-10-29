@@ -41,6 +41,7 @@ function register() {
 		  skin: 'layui-layer-rim', // 加上边框
 		  shadeClose: false,
 		  shade: 0.8,
+		  anim: 3,// 载入动画
 		  area: ['600px', '500px'], // 宽高自定义设置
 		  content: '/register_content.html'  // iframe的url
 		});
