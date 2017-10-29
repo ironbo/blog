@@ -31,4 +31,10 @@ public class ServiceController {
 		JSONObject responseContent = webDispatcher.dispatcher(requestContent);
 		return responseContent;
 	}
+	@RequestMapping(value = { "/check" })
+	public JSONObject check(HttpServletRequest request) {
+		JSONObject requestContent = HttpUtil.getRequestData();	
+		JSONObject responseContent = webDispatcher.dispatcher(requestContent);
+		return responseContent;
+	}
 }

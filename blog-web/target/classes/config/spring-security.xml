@@ -9,6 +9,7 @@
 	<http security="none" pattern="/login.html" />
 	<http security="none" pattern="/resources/**" />
 	<http security="none" pattern="/register" />
+	<http security="none" pattern="/check" />
 	<http security="none" pattern="/register_content.html" />
 	<http security="none" pattern="/weixinTest" />
 	<http auto-config="false"  use-expressions="true" entry-point-ref="myLoginUrlAuthenticationEntryPoint">

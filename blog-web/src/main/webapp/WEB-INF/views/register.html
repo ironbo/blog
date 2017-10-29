@@ -5,7 +5,7 @@
 	type='text/css' />
 <script type="text/javascript" src="/resources/js/jquery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/resources/js/base/base.js"></script>
-<script type="text/javascript" src="/resources/js/layui/layui.js"></script>
+<script type="text/javascript" src="/resources/layui/layui.js"></script>
 <script type="text/javascript" src="/resources/js/views/register.js"></script>
 <title>Insert title here</title>
 </head>
@@ -25,10 +25,11 @@
 		 -->
 		<div class="layui-form-item">
 			<label class="layui-form-label">用户名<span>*</span></label>
-			<div class="layui-input-inline">
-				<input type="text" name="username" lay-verify="username"
+			<div class="layui-input-inline" id="usernameDiv">
+				<input type="text" id="username" name="username" lay-verify="username"
 					autocomplete="off" placeholder="用户名" class="layui-input">
 			</div>
+			<div class='layui-form-mid layui-word-aux' id='usernameCheck'></div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">密码<span>*</span></label>
@@ -50,17 +51,19 @@
 			<div class="layui-inline">
 				<label class="layui-form-label">邮箱<span>*</span></label>
 				<div class="layui-input-inline">
-					<input name="email" lay-verify="email" placeholder="邮箱"
+					<input id="email" name="email" lay-verify="myEmail" placeholder="邮箱"
 						autocomplete="off" class="layui-input" type="text">
 				</div>
+				<div class='layui-form-mid layui-word-aux' id='emailCheck'></div>
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">昵称<span>*</span></label>
 			<div class="layui-input-inline">
-				<input type="text" name="nick" lay-verify="nick" autocomplete="off"
+				<input type="text" id="nick" name="nick" lay-verify="nick" autocomplete="off"
 					placeholder="昵称" class="layui-input">
 			</div>
+			<div class='layui-form-mid layui-word-aux' id="nickCheck"></div>
 		</div>
 		<div class="layui-form-item" pane="">
 			<label class="layui-form-label">性别</label>
@@ -92,7 +95,7 @@
 		<div class="layui-form-item">
 			<div class="layui-input-block">
 				<button class="layui-btn" lay-submit="" lay-filter="submit">立即提交</button>
-				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				<button type="reset" id="reset" class="layui-btn layui-btn-primary">重置</button>
 			</div>
 		</div>
 	</form>

@@ -3,4 +3,6 @@
 target/ 
 .classpath
 .project
-.settings      
+.settings   
+ blog-web/target/  
+ blog-base/target/

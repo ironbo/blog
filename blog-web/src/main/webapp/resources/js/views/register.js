@@ -7,7 +7,7 @@ layui.use([ 'form', 'upload' ],
 	// 自定义验证规则
 	form.verify({
 		username : function(value) {
-			if (value.length < 1) {
+			if ($("#usernameCheck").html().indexOf("red") > 1 ||value.length < 1) {
 				return '用户名用户名<(￣3￣)> ';
 			}
 		},
@@ -15,6 +15,16 @@ layui.use([ 'form', 'upload' ],
 		verifyPassword : function(value) {
 			if ($("#password").val() != value) {
 				return '似乎密码不一致<(￣3￣)> ';
+			}
+		},
+		myEmail : function(value) {
+			if ($("#emailCheck").html().indexOf("red") > 1 ||value.indexOf('@') < 0||value.length < 1) {
+				return '邮箱邮箱<(￣3￣)> ';
+			}
+		},
+		nick : function(value) {
+			if ($("#nickCheck").html().indexOf("red") > 1 ||value.length < 1) {
+				return '昵称昵称<(￣3￣)> ';
 			}
 		}
 	});
@@ -53,52 +63,68 @@ layui.use([ 'form', 'upload' ],
 	form.on('submit(submit)', function(data) {
 		var registerData = data.field;
 		registerData.service_id = 'registerService';
-		ajaxSend({url:'/register',data:registerData},callSuccess);	
+		ajaxSend({url:'/register',data:registerData,msg:"注册成功O(∩_∩)O"},iframeCallSuccess);	
 		return false;
 	});
-//	$("#password").blur(function(){
-//		alert("a");
-//	});
+
 });
-
-function test() {
-	var content = $("#content").val();
-	var pic_path = $("#pic_path").val();
-	var checkData = {
-		'content' : content,
-		'pic_path' : pic_path,
-		'service_id' : 'essaySaveService',
-	};
-	$.ajax({
-		type : 'POST',
-		url : '/invoke',
-		dataType : 'json',
-		data : checkData,
-		success : function(data) {
-			console.log(data);
-		},
-		error : function(xhr, type) {
-
-		}
+$(function() {
+	$("#reset").click(function(){
+		$(".greenText").remove();
+		$(".redText").remove();
 	});
-}
-function test1() {
-	var checkData = {
-		'service_id' : 'essayGetService',
-		'offset' : 10,
-		'limit' : 10,
-		'user_id' : 1,
-	};
-	$.ajax({
-		type : 'POST',
-		url : '/invoke',
-		dataType : 'json',
-		data : checkData,
-		success : function(data) {
-			console.log(data);
-		},
-		error : function(xhr, type) {
-
+	$("#username").blur(function() {
+		var username = $("#username").val();
+		if (username == "") {
+			layer.msg('用户名不能为空哦~', {
+				  icon: 5,
+				  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+				});
+			return;
 		}
+		var checkData = {
+				"service_id":"isUsernameUniqueService",
+				"username":username
+		};
+		ajaxSend({url:'/check',data:checkData,type:'GET',id:'username',name:'用户名'},checkReturn);
 	});
+	$("#email").blur(function() {
+		var email = $("#email").val();
+		if (email == "") {
+			layer.msg('邮箱不能为空哦~', {
+				  icon: 5,
+				  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+				});
+			return;
+		}
+		var checkData = {
+				"service_id":"isEmailUniqueService",
+				"email":email
+		};
+		ajaxSend({url:'/check',data:checkData,type:'GET',id:"email",name:'邮箱'},checkReturn);
+	});
+	$("#nick").blur(function() {
+		var nick = $("#nick").val();
+		if (nick == "") {
+			layer.msg('昵称不能为空哦~', {
+				  icon: 5,
+				  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+				});
+			return;
+		}
+		var checkData = {
+				"service_id":"isNickUniqueService",
+				"nick":nick
+		};
+		ajaxSend({url:'/check',data:checkData,type:'GET',id:"nick",name:'昵称'},checkReturn);
+	});
+})
+function checkReturn(options,data){
+	if (data.data != "true") {
+		$("#"+options.id+"Check").html("<span class='redText'>该"+options.name+"已被注册</span>");
+		$(".redText").css("color","red");
+	}else{
+		$("#"+options.id+"Check").html("<span class='greenText'>"+options.name+"可用哦~</span>");
+		$(".greenText").css("color","green");		
+	}
 }

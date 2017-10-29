@@ -1,4 +1,4 @@
-function ajaxSend(options, callBackSuccess) {
+function ajaxSend(options, callBackSuccess,failedCallBack) {
 	options.type == "GET" ? options.type : "POST";
 	$.ajax({
 		type : options.type,
@@ -6,23 +6,24 @@ function ajaxSend(options, callBackSuccess) {
 		dataType : 'json',
 		data : options.data,
 		success : function(data) {
-			callBackSuccess(data,options);
+			callBackSuccess(options,data);
 		},
 		error : function(json, textStatus) {
 			common_resubmit_flag = false;
-			logger.error('send ajax return error.');
 			if (failedCallBack) {
 				failedCallBack(json, textStatus);
 			} else {
-				alertMsg("通讯异常");
+				alert("tongxunyichang");
 			}
 		}
 	});
 }
 
-function callSuccess(data) {
+function iframeCallSuccess(options,data) {
+	
 	if (data.code == "0000") {
-		layer.alert(data.msg, {
+		options.msg == null?data.msg:options.msg;
+		layer.alert(options.msg, {
 			icon : 6
 		}, function(index) {
 			layer.close(index);
