@@ -27,10 +27,6 @@ public class UserInfoService implements CommandService {
 		User source = userDao.queryInfo(username);
 		UserData target = new UserData();
 		BeanUtils.copyProperties(source, target);
-		if (target.getGender().equals("F"))
-			target.setGender("女");
-		else
-			target.setGender("男");
 		response.setData(target);
 		return response;
 	}

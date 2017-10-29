@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import org.springframework.stereotype.Component;
@@ -24,7 +25,13 @@ public class WebDispatcher {
 
 		if (requestJson.containsValue("registerService")) {
 			String password = passwordEncoder.encode(requestJson.getString("password"));
-			requestJson.replace("password", password);
+			requestJson.put("password", password);
+		}
+		if (requestJson.containsValue("userInfoService")) {
+			String username = requestJson.getString("username");
+			if(username == null || username == "")
+				username = SecurityContextHolder.getContext().getAuthentication().getName();
+			requestJson.put("username", username);
 		}
 		String requestContent = requestJson.toJSONString();
 		logger.info("发送报文：{}", requestContent);
