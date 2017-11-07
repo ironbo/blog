@@ -10,5 +10,5 @@
 	</context:component-scan>
 
 	<import resource="classpath:config/spring-security.xml" />
-	<import resource="classpath:spring-base.xml" />
+	<import resource="classpath*:spring-base.xml" />
 </beans>

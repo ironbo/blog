@@ -17,7 +17,7 @@
 					<version>9.3.0.v20150612</version>
 					<configuration>
 						<httpConnector>
-							<port>8082</port>
+							<port>8081</port>
 						</httpConnector>
 						<scanIntervalSeconds>8</scanIntervalSeconds>
 					</configuration>
@@ -43,7 +43,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
-					<version>2.6</version>
+					<version>3.0.2</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
