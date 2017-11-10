@@ -31,8 +31,9 @@ public class LikedContent {
 
 	@Id
 	@Column(name = "ID", length = 10)
-	@SequenceGenerator(name = "seq", sequenceName = "BLOG_LIKED_CONTENT_SEQ", initialValue = 1, allocationSize = 1)
-	@GeneratedValue(generator = "seq", strategy = GenerationType.SEQUENCE)
+//	@SequenceGenerator(name = "seq", sequenceName = "BLOG_LIKED_CONTENT_SEQ", initialValue = 1, allocationSize = 1)
+//	@GeneratedValue(generator = "seq", strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}

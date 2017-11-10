@@ -42,8 +42,9 @@ public class Essay {
 
 	@Id
 	@Column(name = "ID", length = 10)
-	@SequenceGenerator(name = "seq", sequenceName = "BLOG_ESSAY_SEQ", initialValue = 1, allocationSize = 1)
-	@GeneratedValue(generator = "seq", strategy = GenerationType.SEQUENCE)
+//	@SequenceGenerator(name = "seq", sequenceName = "BLOG_ESSAY_SEQ", initialValue = 1, allocationSize = 1)
+//	@GeneratedValue(generator = "seq", strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}
@@ -133,7 +134,7 @@ public class Essay {
 	// this.likedNum = likedNum;
 	// }
 
-	@Column(name = "IS_SHARE",columnDefinition="varchar2(1) default 0")
+	@Column(name = "IS_SHARE", columnDefinition = "varchar(1) default 0")
 	public String getIsShare() {
 		return isShare;
 	}

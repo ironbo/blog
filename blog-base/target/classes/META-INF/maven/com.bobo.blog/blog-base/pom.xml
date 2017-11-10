@@ -13,7 +13,7 @@
 	<version>1.0-SNAPSHOT</version>
 	<url>http://maven.apache.org</url>
 	<build>
-	<finalName>blog-base</finalName>
+		<finalName>blog-base</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -30,9 +30,7 @@
 						<configuration>
 							<encoding>UTF-8</encoding>
 							<overwrite>true</overwrite>
-						<!--	<outputDirectory>
-								src/main/assembly/conf
-							</outputDirectory>    表示把配置文件拷到和jar包同一个路径下 -->
+							<!-- <outputDirectory> src/main/assembly/conf </outputDirectory> 表示把配置文件拷到和jar包同一个路径下 -->
 							<outputDirectory>
 								target/classes
 							</outputDirectory>
@@ -53,21 +51,10 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- <plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<descriptor>src/main/assembly/assembly.xml</descriptor>
-				</configuration>
-				<executions>
-					<execution>
-						<id>make-assembly</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin> -->
+			<!-- <plugin> <artifactId>maven-assembly-plugin</artifactId> <configuration> 
+				<descriptor>src/main/assembly/assembly.xml</descriptor> </configuration> 
+				<executions> <execution> <id>make-assembly</id> <phase>package</phase> <goals> 
+				<goal>single</goal> </goals> </execution> </executions> </plugin> -->
 		</plugins>
 		<resources>
 			<resource>
@@ -81,21 +68,21 @@
 	</build>
 	<profiles>
 		<profile>
-			<!-- oracle环境 -->
+			<!-- oracle环境 若需使用该环境，需要修改实体类主键生成策略 -->
 			<id>oracle</id>
 			<properties>
 				<profiles.active>oracle</profiles.active>
 			</properties>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 		</profile>
 		<profile>
-			<!-- mysql环境-->
+			<!-- mysql环境 -->
 			<id>mysql</id>
 			<properties>
 				<profiles.active>mysql</profiles.active>
 			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 		</profile>
 	</profiles>
 	<properties>
@@ -117,6 +104,10 @@
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc14</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 	</dependencies>
 

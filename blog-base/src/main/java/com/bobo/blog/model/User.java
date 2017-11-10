@@ -45,9 +45,10 @@ public class User {
 	private List<Role> roles = new ArrayList<Role>();
 
 	@Id
-	@Column(name = "ID", length = 10)
-	@SequenceGenerator(name = "seq", sequenceName = "BLOG_USER_SEQ", initialValue = 1, allocationSize = 1)
-	@GeneratedValue(generator = "seq", strategy = GenerationType.SEQUENCE)
+	@Column(name = "ID")
+//	@SequenceGenerator(name = "seq", sequenceName = "BLOG_USER_SEQ", initialValue = 1, allocationSize = 1)
+//	@GeneratedValue(generator = "seq", strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}
