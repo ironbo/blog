@@ -14,18 +14,15 @@ public class WebController {
 
 	@RequestMapping(value = { "/", "/login.html" })
 	public String loginForm(HttpServletResponse response, HttpServletRequest request) {
-		response.setCharacterEncoding("UTF-8");
 		return "form_login";
 	}
 
 	@RequestMapping(value = { "/forward" })
 	public String forward(HttpServletResponse response, HttpServletRequest request) {
-		response.setCharacterEncoding("UTF-8");
 		return "index";
 	}
 	@RequestMapping(value = { "/register_content.html" })
 	public String register(HttpServletResponse response, HttpServletRequest request) {
-		response.setCharacterEncoding("UTF-8");
 		return "register";
 	}
 	

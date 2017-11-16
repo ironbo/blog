@@ -9,7 +9,6 @@ function ajaxSend(options, callBackSuccess,failedCallBack) {
 			callBackSuccess(options,data);
 		},
 		error : function(json, textStatus) {
-			common_resubmit_flag = false;
 			if (failedCallBack) {
 				failedCallBack(json, textStatus);
 			} else {

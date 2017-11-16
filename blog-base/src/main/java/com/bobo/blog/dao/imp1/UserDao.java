@@ -64,12 +64,12 @@ public class UserDao extends BaseDao<User> {
 		return false;
 	}
 
-	public boolean IsNickUnique(String email) {
+	public boolean IsNickUnique(String nick) {
 		String hql = "select count(1) as totalNum from User u where u.nick = ?";
 		Session session = getSession();
 		Query<?> query = session.createQuery(hql);
 		List<?> results = new ArrayList<>();
-		results = query.setParameter(0, email).getResultList();
+		results = query.setParameter(0, nick).getResultList();
 		System.out.println(results.get(0));
 		String total = results.get(0).toString();
 		if (total.equals("0"))

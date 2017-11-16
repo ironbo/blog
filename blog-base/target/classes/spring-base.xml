@@ -44,9 +44,10 @@
 				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
 				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
 				<prop key="hibernate.use_identifier_rollback">${hibernate.use_identifier_rollback}</prop>
-			<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<!-- 
+					<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
 
-				<!-- 	开启二级缓存 ehcache <prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop> 
+					开启二级缓存 ehcache <prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop> 
 					<prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop> 
 					<prop key="hibernate.cache.region.factory_class">${hibernate.cache.region.factory_class}</prop> 
 					<prop key="hibernate.cache.provider_configuration_file_resource_path">${hibernate.cache.provider_configuration_file_resource_path} 

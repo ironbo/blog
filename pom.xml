@@ -8,7 +8,7 @@
 	<packaging>pom</packaging>
 
 	<build>
-		<finalName>myblog</finalName>
+		<finalName>blog</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -231,8 +231,8 @@
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
-				<version>6.0.6</version>
-			</dependency>
+				<version>5.1.38</version>
+			</dependency>		
 		</dependencies>
 	</dependencyManagement>
 	<modules>

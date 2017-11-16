@@ -45,7 +45,7 @@ public class Role {
 		this.roleName = roleName;
 	}
 
-	@Column(name = "DESCRIBE", length = 100, nullable = false)
+	@Column(name = "DESC", length = 100, nullable = false)
 	public String getDesc() {
 		return desc;
 	}

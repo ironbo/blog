@@ -7,7 +7,7 @@ $(function() {
 		"service_id" : "userInfoService"
 	}
 	ajaxSend({
-		url : '/invoke',
+		url : 'invoke',
 		data : data,
 		type : 'GET'
 	}, getInfo);

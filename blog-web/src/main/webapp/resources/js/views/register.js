@@ -63,7 +63,7 @@ layui.use([ 'form', 'upload' ],
 	form.on('submit(submit)', function(data) {
 		var registerData = data.field;
 		registerData.service_id = 'registerService';
-		ajaxSend({url:'/register',data:registerData,msg:"注册成功O(∩_∩)O"},iframeCallSuccess);	
+		ajaxSend({url:'register',data:registerData,msg:"注册成功O(∩_∩)O"},iframeCallSuccess);	
 		return false;
 	});
 
@@ -86,7 +86,7 @@ $(function() {
 				"service_id":"isUsernameUniqueService",
 				"username":username
 		};
-		ajaxSend({url:'/check',data:checkData,type:'GET',id:'username',name:'用户名'},checkReturn);
+		ajaxSend({url:'check',data:checkData,type:'GET',id:'username',name:'用户名'},checkReturn);
 	});
 	$("#email").blur(function() {
 		var email = $("#email").val();
@@ -101,7 +101,7 @@ $(function() {
 				"service_id":"isEmailUniqueService",
 				"email":email
 		};
-		ajaxSend({url:'/check',data:checkData,type:'GET',id:"email",name:'邮箱'},checkReturn);
+		ajaxSend({url:'check',data:checkData,type:'GET',id:"email",name:'邮箱'},checkReturn);
 	});
 	$("#nick").blur(function() {
 		var nick = $("#nick").val();
@@ -116,7 +116,7 @@ $(function() {
 				"service_id":"isNickUniqueService",
 				"nick":nick
 		};
-		ajaxSend({url:'/check',data:checkData,type:'GET',id:"nick",name:'昵称'},checkReturn);
+		ajaxSend({url:'check',data:checkData,type:'GET',id:"nick",name:'昵称'},checkReturn);
 	});
 })
 function checkReturn(options,data){

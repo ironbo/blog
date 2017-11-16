@@ -14,13 +14,14 @@ function login() {
 	var loginData = {
 		'username' : username,
 		'password' : password,
+		"type" : "POST"
 	};
-	ajaxSend({url : '/login',data : loginData}, forward);
+	ajaxSend({url : 'login',data : loginData}, forward);
 	return false;
 }
 function forward(options,data) {
 	if (data.code == "0000") {
-		window.location.href = "/forward";
+		window.location.href = "forward";
 	} else {
 		layer.alert(data.msg, {icon : 5});
 	}
@@ -34,7 +35,7 @@ function register() {
 			shade : 0.8,
 			anim : 3,// 载入动画
 			area : [ '600px', '500px' ], // 宽高自定义设置
-			content : '/register_content.html' // iframe的url
+			content : 'register_content.html' // iframe的url
 		});
 }
 
