@@ -9,23 +9,29 @@ $(function() {
 })
 
 function login() {
-	var username = $("#username").val();
-	var password = $("#password").val();
-	var loginData = {
-		'username' : username,
-		'password' : password,
-		"type" : "POST"
-	};
-	ajaxSend({url : 'login',data : loginData}, forward);
-	return false;
+	$("#form").attr("action","login");
+	$("#form").attr("type","POST");
+	$("#form").submit();
+	
 }
-function forward(options,data) {
-	if (data.code == "0000") {
-		window.location.href = "forward";
-	} else {
-		layer.alert(data.msg, {icon : 5});
-	}
-}
+//function login() {
+//	var username = $("#username").val();
+//	var password = $("#password").val();
+//	var loginData = {
+//		'username' : username,
+//		'password' : password,
+//		"type" : "POST"
+//	};
+//	ajaxSend({url : 'login',data : loginData}, forward);
+//	return false;
+//}
+//function forward(options,data) {
+//	if (data.code == "0000") {
+//		window.location.href = "forward";
+//	} else {
+//		layer.alert(data.msg, {icon : 5});
+//	}
+//}
 function register() {
 		layer.open({
 			type : 2,

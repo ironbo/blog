@@ -20,6 +20,7 @@ public class MyUserDetailsServiceImp1 implements UserDetailsService {
 		requestContent.put("service_id", "usernameCheckService");
 		JSONObject responseJson = webDispatcher.dispatcher(requestContent);
 		String password = responseJson.getString("password");
+		System.out.println(password);
 		MyUserDetails userDetails = new MyUserDetails(username, password);
 		return userDetails;
 	}

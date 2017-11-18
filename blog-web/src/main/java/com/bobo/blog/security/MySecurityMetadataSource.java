@@ -41,7 +41,6 @@ public class MySecurityMetadataSource implements FilterInvocationSecurityMetadat
 
 	public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
 		final HttpServletRequest request = ((FilterInvocation) object).getRequest();
-		System.out.println(1);
 		for (Map.Entry<RequestMatcher, Collection<ConfigAttribute>> entry : requestMap.entrySet()) {
 			System.out.println(entry.getKey());
 			if (entry.getKey().matches(request)) {
