@@ -58,11 +58,9 @@
 	<beans:bean id="mySecurityMetaDataSource"
 		class="com.bobo.blog.security.MySecurityMetadataSource"></beans:bean>
 	<beans:bean id="successHandler"
-		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler">
-		<beans:constructor-arg name="defaultTargetUrl" value="/forward"></beans:constructor-arg>
+		class="com.bobo.blog.security.MySimpleUrlAuthenticationSuccessHandler">
 	</beans:bean>
 	<beans:bean id="failureHandler"
-		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
-	<beans:constructor-arg name="defaultFailureUrl" value="/login.html"></beans:constructor-arg>
+		class="com.bobo.blog.security.MySimpleUrlAuthenticationFailureHandler">
 	</beans:bean>
 </beans:beans>
