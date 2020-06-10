@@ -1,15 +1,13 @@
 package com.bobo.blog.response;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class PasswordResponse extends DefaultCommandResponse {
+
 	private String password;
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 
 }

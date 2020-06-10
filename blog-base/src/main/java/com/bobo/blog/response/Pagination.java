@@ -1,8 +1,13 @@
 package com.bobo.blog.response;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class Pagination extends DefaultCommandResponse {
 
 	private int offset;// 偏移量，启示位置
@@ -42,28 +47,5 @@ public class Pagination extends DefaultCommandResponse {
 		return new Pagination(offset, limit);
 	}
 
-	public int getOffset() {
-		return offset;
-	}
-
-	public int getLimit() {
-		return limit;
-	}
-
-	public List<?> getRows() {
-		return rows;
-	}
-
-	public void setRows(List<?> rows) {
-		this.rows = rows;
-	}
-
-	public int getTotal() {
-		return total;
-	}
-
-	public void setTotal(int total) {
-		this.total = total;
-	}
 
 }
